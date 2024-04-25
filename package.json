@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@jrock2004/eslint-config": "workspace:*",
-    "@jrock2004/typescript-config": "workspace:*",
+    "@jrock2004/tsconfig": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
