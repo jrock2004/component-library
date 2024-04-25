@@ -1,0 +1,29 @@
+{
+  "name": "@jrock2004/component-library",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --legacy-output --dts --external react",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --legacy-output --dts --external react",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@jrock2004/tsconfig": "workspace:*",
+    "@jrock2004/eslint-config-mindbody": "workspace:*",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "eslint": "^9.1.1",
+    "react": "^18.2.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {}
+}
