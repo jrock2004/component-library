@@ -7,6 +7,7 @@ export { colors } from './palette/colors';
 export { ThemeProvider, ThemeProviderProps } from './components/ThemeProvider';
 
 // Components
+export { Button, ButtonProps } from './components/Button';
 export { Checkbox, CheckboxProps } from './components/Checkbox';
 export { InlineHighlight, InlineHighlightProps } from './components/InlineHighlight';
 export { Lead, LeadProps } from './components/Lead';
