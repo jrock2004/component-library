@@ -1,8 +1,10 @@
 import { InputHTMLAttributes, ReactNode } from 'react';
 
 export const Checkbox = ({ children, disabled, id, size = 'md', ...rest }: CheckboxProps) => {
+  // const base =
+  //   'text-red-100 bg-gray-100 border-action-active rounded focus:ring-blue-500 focus:ring-2 hover:cursor-pointer';
   const base =
-    'text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 hover:cursor-pointer dark:bg-gray-700 dark:border-gray-600';
+    'accent-primary disabled:accent-action-disabled disabled:cursor-not-allowed hover:ring-4 hover:ring-slate-300 focus:ring-accent-primary focus:ring-offset-0';
   let sizeClasses = '';
   let labelClasses = 'text-sm';
 
@@ -31,7 +33,7 @@ export const Checkbox = ({ children, disabled, id, size = 'md', ...rest }: Check
       />
       <label
         htmlFor={id}
-        className={`${labelClasses} select-none font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 hover:cursor-pointer`}
+        className={`${labelClasses} select-none font-medium leading-none hover:cursor-pointer peer-disabled:cursor-not-allowed peer-disabled:opacity-70`}
       >
         {children}
       </label>

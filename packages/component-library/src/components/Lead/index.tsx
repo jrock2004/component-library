@@ -1,7 +1,7 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from 'react';
 
 export const Lead = ({ children }: LeadProps) => {
-  return <span className="text-xl text-slate-400 font-base">{children}</span>;
+  return <span className="text-text-secondary text-xl">{children}</span>;
 };
 
 export interface LeadProps extends HTMLAttributes<HTMLSpanElement> {

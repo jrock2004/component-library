@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from 'react';
 
 export const TableHeadItem = ({ children, ...rest }: TableHeadItemProps) => {
   return (
@@ -11,7 +11,6 @@ export const TableHeadItem = ({ children, ...rest }: TableHeadItemProps) => {
   );
 };
 
-export interface TableHeadItemProps
-  extends HTMLAttributes<HTMLTableCellElement> {
+export interface TableHeadItemProps extends HTMLAttributes<HTMLTableCellElement> {
   children: ReactNode;
 }
