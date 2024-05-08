@@ -7,42 +7,42 @@ export const Typography = ({
   variant,
   ...rest
 }: TypographyProps) => {
-  let fontSize = 'text-base';
+  let fontProps = 'text-base';
   let variantClasses = '';
 
   switch (component) {
     case 'h1':
-      fontSize = 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl';
+      fontProps = 'text-4xl font-semibold text-heading';
       break;
     case 'h2':
-      fontSize = 'scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0';
+      fontProps = 'text-3xl font-semibold text-heading';
       break;
     case 'h3':
-      fontSize = 'mt-8 scroll-m-20 text-2xl font-semibold tracking-tight';
+      fontProps = 'text-2xl font-semibold text-heading';
       break;
     case 'h4':
-      fontSize = 'scroll-m-20 text-xl font-semibold tracking-tight';
+      fontProps = 'text-xl font-semibold text-heading';
       break;
     case 'h5':
-      fontSize = 'scroll-m-20 text-lg font-semibold tracking-tight';
+      fontProps = 'text-lg font-semibold text-heading';
       break;
     case 'h6':
-      fontSize = 'scroll-m-20 text-md font-semibold tracking-tight';
+      fontProps = 'text-base font-semibold text-heading';
       break;
     case 'p':
-      fontSize = 'leading-7 [&:not(:first-child)]:mt-6';
+      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
       break;
     case 'blockquote':
-      fontSize = 'mt-6 border-l-2 pl-6 italic';
+      fontProps = 'mt-6 border-l-2 pl-6 italic';
       break;
     case 'span':
-      fontSize = 'leading-7 [&:not(:first-child)]:mt-6';
+      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
       break;
     case 'div':
-      fontSize = 'leading-7 [&:not(:first-child)]:mt-6';
+      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
       break;
     default:
-      fontSize = 'leading-7 [&:not(:first-child)]:mt-6';
+      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
   }
 
   if (variant !== undefined) {
@@ -64,7 +64,7 @@ export const Typography = ({
   return createElement(
     component,
     {
-      className: `${fontSize} ${variantClasses} ${classes}`,
+      className: `${fontProps} ${variantClasses} ${classes}`,
       ...rest,
     },
     children

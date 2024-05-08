@@ -41,6 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Heading1: Story = {
   args: {
     children: 'Heading 1',
+    component: 'h1',
   },
 };
 
