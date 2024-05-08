@@ -2,7 +2,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 
 export const TableBodyRow = ({ children, ...rest }: TableBodyRowProps) => {
   return (
-    <tr className="even:bg-info-hover m-0 border-t p-0" {...rest}>
+    <tr className="odd:bg-layer3" {...rest}>
       {children}
     </tr>
   );

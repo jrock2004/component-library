@@ -2,10 +2,7 @@ import { HTMLAttributes, ReactNode } from 'react';
 
 export const TableBodyItem = ({ children, ...rest }: TableBodyItemProps) => {
   return (
-    <td
-      className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-      {...rest}
-    >
+    <td className="text-heading whitespace-nowrap px-4 py-3" {...rest}>
       {children}
     </td>
   );

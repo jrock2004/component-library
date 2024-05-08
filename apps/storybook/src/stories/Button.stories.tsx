@@ -12,6 +12,7 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
+    isCritical: false,
     isDisabled: false,
     isLoading: false,
     onClick: fn(),
@@ -23,7 +24,7 @@ const meta = {
       control: { type: 'radio' },
     },
     variant: {
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['primary', 'secondary', 'outline', 'tertiary'],
       control: { type: 'radio' },
     },
   },

@@ -29,20 +29,11 @@ export const Typography = ({
     case 'h6':
       fontProps = 'text-base font-semibold text-heading';
       break;
-    case 'p':
-      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
-      break;
     case 'blockquote':
-      fontProps = 'mt-6 border-l-2 pl-6 italic';
-      break;
-    case 'span':
-      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
-      break;
-    case 'div':
-      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
+      fontProps = 'my-7 pl-4 font-medium italic text-layer-3 border-l-4 border-layer3';
       break;
     default:
-      fontProps = 'leading-7 [&:not(:first-child)]:mt-6';
+      break;
   }
 
   if (variant !== undefined) {
@@ -57,14 +48,14 @@ export const Typography = ({
         variantClasses = 'text-sm text-slate-400';
         break;
       default:
-        variantClasses = '';
+        break;
     }
   }
 
   return createElement(
     component,
     {
-      className: `${fontProps} ${variantClasses} ${classes}`,
+      className: `${fontProps} ${variantClasses} ${classes}`.trim(),
       ...rest,
     },
     children

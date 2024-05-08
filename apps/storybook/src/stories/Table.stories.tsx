@@ -1,21 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
 import {
   Table,
+  TableBody,
   TableBodyItem,
   TableBodyRow,
+  TableHead,
   TableHeadItem,
   TableHeadRow,
-} from "@jrock2004/component-library";
+} from '@jrock2004/component-library';
 
 const meta = {
-  title: "Components/Table",
+  title: 'Components/Table',
   component: Table,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof Table>;
 
 export default meta;
@@ -23,18 +25,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    id: "list",
+    id: 'list',
     children: (
       <>
-        <thead>
+        <TableHead>
           <TableHeadRow>
             <TableHeadItem>First Name</TableHeadItem>
             <TableHeadItem>Last Name</TableHeadItem>
             <TableHeadItem>Email</TableHeadItem>
             <TableHeadItem>Age</TableHeadItem>
           </TableHeadRow>
-        </thead>
-        <tbody>
+        </TableHead>
+        <TableBody>
           <TableBodyRow>
             <TableBodyItem>Josh</TableBodyItem>
             <TableBodyItem>Allen</TableBodyItem>
@@ -53,7 +55,7 @@ export const Primary: Story = {
             <TableBodyItem>micha.hyde@test.com</TableBodyItem>
             <TableBodyItem>37</TableBodyItem>
           </TableBodyRow>
-        </tbody>
+        </TableBody>
       </>
     ),
   },

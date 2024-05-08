@@ -45,6 +45,14 @@ export const Heading1: Story = {
   },
 };
 
+export const Blockquote: Story = {
+  args: {
+    children:
+      'Adipiscing porttitor purus nullam scelerisque habitasse velit ut. Suspendisse adipiscing volutpat orci, morbi sed risus, scelerisque facilisi. Justo, maecenas potenti aliquam, vitae.',
+    component: 'blockquote',
+  },
+};
+
 export const Variant: Story = {
   args: {
     children: 'Variant text',
