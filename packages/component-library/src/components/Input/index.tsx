@@ -1,30 +1,85 @@
-import { ChangeEventHandler, InputHTMLAttributes } from 'react';
+import { ChangeEventHandler, InputHTMLAttributes, ReactNode } from 'react';
 
-export const Input = ({ id, label, onChange, size, value, ...rest }: InputProps) => {
+export const Input = ({
+  endIcon,
+  errorText,
+  helperText,
+  id,
+  label,
+  onChange,
+  size = 'small',
+  startIcon,
+  value,
+  ...rest
+}: InputProps) => {
+  const type = rest.type || 'text';
+  let labelClass = 'block text-sm font-semibold text-heading';
+  let inputClass =
+    'mt-2 block w-full rounded-xl border-2 border-muted3 bg-transparent px-4 py-2.5 font-semibold text-heading placeholder:text-text/50 focus:border-primary focus:outline-none focus:ring-0 sm:text-md';
+
+  if (errorText) {
+    inputClass += ' border-red-500';
+  }
+
+  if (startIcon) {
+    inputClass += ' pl-11';
+  }
+
+  if (endIcon) {
+    inputClass += ' pr-11';
+  }
+
   return (
-    <div className="group relative w-56">
-      <input
-        className="peer h-10 w-full bg-gray-100 px-4 text-sm outline-none"
-        id={id}
-        onChange={onChange}
-        {...rest}
-      />
-      <label
-        htmlFor={id}
-        className="absolute left-0 top-0 flex h-full transform items-center pl-2 text-sm transition-all group-focus-within:h-1/2 group-focus-within:-translate-y-full group-focus-within:pl-0 group-focus-within:text-xs peer-valid:h-1/2 peer-valid:-translate-y-full peer-valid:pl-0 peer-valid:text-xs"
-      >
+    <div className="">
+      <label htmlFor={id} className={labelClass}>
         {label}
       </label>
+      <div className="relative">
+        {startIcon && (
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex flex-shrink-0 items-center pl-4 focus-within:z-20">
+            {startIcon}
+          </div>
+        )}
+        <input
+          className={inputClass}
+          id={id}
+          name={id}
+          aria-describedby={`${id}:helper`}
+          aria-invalid={!!errorText}
+          onChange={onChange}
+          type={type}
+          {...rest}
+        />
+        {endIcon && (
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex flex-shrink-0 items-center pr-4 focus-within:z-20">
+            {endIcon}
+          </div>
+        )}
+      </div>
+      {errorText && (
+        <p aria-live="polite" id={`${id}:error`} className="mt-2 text-xs font-medium text-red-400">
+          {errorText}
+        </p>
+      )}
+      {helperText && (
+        <p aria-live="polite" id={`${id}:helper`} className="text-text mt-2 text-xs font-medium">
+          {helperText}
+        </p>
+      )}
     </div>
   );
 };
 
-export type Size = 'small' | 'medium';
+export type Size = 'small';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  endIcon?: ReactNode;
+  errorText?: string;
+  helperText?: string;
   id: string;
   label: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   size?: Size;
+  startIcon?: ReactNode;
   value: string;
 }
