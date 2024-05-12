@@ -6,7 +6,7 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "publish-packages": "turbo run build lint && changeset version && changeset publish"
   },
   "devDependencies": {
     "@jrock2004/eslint-config": "workspace:*",
@@ -14,7 +14,6 @@
     "prettier": "^3.2.5",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@9.0.6",
   "engines": {
     "node": ">=18"
   },

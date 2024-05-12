@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { CreditCardIcon } from '@heroicons/react/24/outline';
 
 import {
   Table,
@@ -8,7 +9,11 @@ import {
   TableHead,
   TableHeadItem,
   TableHeadRow,
+  formatDate,
 } from '@jrock2004/component-library';
+
+import { TablePaymentMethod, tableData } from './data/table';
+import { TableDataProp } from './data/table';
 
 const meta = {
   title: 'Components/Table',
@@ -23,6 +28,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const PaymentMethod = ({ paymentMethod }: { paymentMethod: TablePaymentMethod }) => {
+  return (
+    <div className="flex w-full justify-between">
+      <div>
+        <CreditCardIcon className="h-5 w-5" />
+      </div>
+      <div className="ml-2">•••• {paymentMethod.lastFour}</div>
+    </div>
+  );
+};
+
 export const Primary: Story = {
   args: {
     id: 'list',
@@ -30,31 +46,23 @@ export const Primary: Story = {
       <>
         <TableHead>
           <TableHeadRow>
-            <TableHeadItem>First Name</TableHeadItem>
-            <TableHeadItem>Last Name</TableHeadItem>
+            <TableHeadItem>Client</TableHeadItem>
             <TableHeadItem>Email</TableHeadItem>
-            <TableHeadItem>Age</TableHeadItem>
+            <TableHeadItem>Payment Method</TableHeadItem>
+            <TableHeadItem>Created</TableHeadItem>
           </TableHeadRow>
         </TableHead>
         <TableBody>
-          <TableBodyRow>
-            <TableBodyItem>Josh</TableBodyItem>
-            <TableBodyItem>Allen</TableBodyItem>
-            <TableBodyItem>john.allen@test.com</TableBodyItem>
-            <TableBodyItem>27</TableBodyItem>
-          </TableBodyRow>
-          <TableBodyRow>
-            <TableBodyItem>Greg</TableBodyItem>
-            <TableBodyItem>Smith</TableBodyItem>
-            <TableBodyItem>greg.smith@test.com</TableBodyItem>
-            <TableBodyItem>21</TableBodyItem>
-          </TableBodyRow>
-          <TableBodyRow>
-            <TableBodyItem>Micha</TableBodyItem>
-            <TableBodyItem>Hyde</TableBodyItem>
-            <TableBodyItem>micha.hyde@test.com</TableBodyItem>
-            <TableBodyItem>37</TableBodyItem>
-          </TableBodyRow>
+          {tableData.map((data: TableDataProp) => (
+            <TableBodyRow key={data.id}>
+              <TableBodyItem>{data.client}</TableBodyItem>
+              <TableBodyItem>{data.email}</TableBodyItem>
+              <TableBodyItem>
+                <PaymentMethod paymentMethod={data.paymentMethod} />
+              </TableBodyItem>
+              <TableBodyItem>{formatDate(data.createdAt)}</TableBodyItem>
+            </TableBodyRow>
+          ))}
         </TableBody>
       </>
     ),

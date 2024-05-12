@@ -15,3 +15,4 @@ export { Lead, LeadProps } from './components/Lead';
 export * from './components/List/Index';
 export * from './components/Table';
 export { ComponentProps, Typography, TypographyProps } from './components/Typography';
+export * from './utils/date';

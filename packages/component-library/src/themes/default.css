@@ -35,26 +35,26 @@ html[data-theme='default'] {
   --color-critical-accent: 153 27 27;
   --color-secondary: 98 98 112;
   --color-secondary-accent: 81 81 95;
+}
 
-  @media (prefers-color-scheme: dark) {
-    html[data-theme='default'] {
-      /* Theme Colors */
-      --color-text: 171 173 198;
-      --color-heading: 255 255 255;
-      --color-hr: 50 56 85;
-      --color-layer-0: 21 24 37;
-      --color-layer-1: 26 29 45;
-      --color-layer-2: 30 34 53;
-      --color-layer-3: 37 42 65;
-      --color-muted-1: 37 42 65;
-      --color-muted-2: 50 56 85;
-      --color-muted-3: 66 72 103;
-      --color-primary: 37 100 235;
-      --color-primary-accent: 30 64 175;
-      --color-critical: 220 38 38;
-      --color-critical-accent: 153 27 27;
-      --color-secondary: 66 72 103;
-      --color-secondary-accent: 48 54 80;
-    }
+@media (prefers-color-scheme: dark) {
+  html[data-theme='default'] {
+    /* Theme Colors */
+    --color-text: 171 173 198;
+    --color-heading: 255 255 255;
+    --color-hr: 50 56 85;
+    --color-layer-0: 21 24 37;
+    --color-layer-1: 26 29 45;
+    --color-layer-2: 30 34 53;
+    --color-layer-3: 37 42 65;
+    --color-muted-1: 37 42 65;
+    --color-muted-2: 50 56 85;
+    --color-muted-3: 66 72 103;
+    --color-primary: 37 100 235;
+    --color-primary-accent: 30 64 175;
+    --color-critical: 220 38 38;
+    --color-critical-accent: 153 27 27;
+    --color-secondary: 66 72 103;
+    --color-secondary-accent: 48 54 80;
   }
 }
