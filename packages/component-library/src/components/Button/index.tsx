@@ -19,23 +19,38 @@ export const Button = ({
 
   const variantClasses = {
     primary:
-      'border-2 bg-primary text-white font-semibold border-primary shadow-sm hover:border-primaryAccent hover:bg-primaryAccent focus:outline-none focus:ring-2 focus:ring-orange-400/80 focus:ring-offset-0 disabled:opacity-30 disabled:hover:border-primary disabled:hover:bg-primary disabled:hover:text-white',
+      'border-2 font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-400/80 focus:ring-offset-0 disabled:opacity-30 ',
     secondary:
-      'border-2 border-secondary bg-secondary font-semibold text-white shadow-sm hover:border-secondaryAccent hover:bg-secondaryAccent focus:outline-none focus:ring-2 focus:ring-primary/80 focus:ring-offset-0 disabled:opacity-30 disabled:hover:border-secondary disabled:hover:bg-secondary disabled:hover:text-white dark:focus:ring-white/80',
+      'border-2 font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-30',
     outline:
-      'border-2 border-muted2 bg-transparent font-semibold shadow-sm hover:bg-muted2 focus:outline-none focus:ring-2 focus:ring-orange-400/80 focus:ring-offset-0 disabled:opacity-30 disabled:hover:text-text dark:focus:ring-white/80',
-    tertiary:
-      'border-2 border-transparent bg-transparent font-semibold hover:bg-heading/5 focus:bg-heading/5 focus:outline-none focus:ring-2 focus:ring-heading/80 focus:ring-offset-0 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-text',
+      'border-2 font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:opacity-30',
+    tertiary: 'border-2 font-semibold focus:outline-none focus:ring-2 focus:ring-offset-0',
+  };
+
+  const colorClasses = {
+    primary: isCritical
+      ? 'border-critical bg-critical text-white hover:border-criticalAccent hover:bg-criticalAccent disabled:opacity-30 disabled:hover:border-critical disabled:hover:bg-critical disabled:hover:text-white dark:focus:ring-white/80'
+      : 'text-white border-primary bg-primary hover:border-primaryAccent hover:bg-primaryAccent disabled:hover:border-primary disabled:hover:bg-primary disabled:hover:text-white',
+    secondary: isCritical
+      ? 'border-critical bg-critical text-white hover:border-criticalAccent hover:bg-criticalAccent disabled:opacity-30 disabled:hover:border-critical disabled:hover:bg-critical disabled:hover:text-white dark:focus:ring-white/80'
+      : 'border-secondary bg-secondary text-white hover:border-secondaryAccent hover:bg-secondaryAccent focus:ring-primary/80 disabled:hover:border-secondary disabled:hover:bg-secondary disabled:hover:text-white dark:focus:ring-white/80',
+    outline: isCritical
+      ? 'text-critical border-critical hover:border-criticalAccent hover:text-criticalAccent'
+      : 'border-muted1 bg-transparent text-text hover:text-slate-500 focus:text-white focus:ring-orange-400/80 focus:ring-offset-0 disabled:hover:text-text dark:focus:ring-white/80',
+    tertiary: isCritical
+      ? 'text-critical border-transparent bg-transparent hover:bg-critical/5 focus:bg-heading/5 focus:ring-heading/80 disabled:hover:bg-transparent disabled:hover:text-critical'
+      : 'text-text border-transparent bg-transparent hover:bg-heading/5 focus:bg-heading/5 focus:ring-heading/80 disabled:hover:bg-transparent disabled:hover:text-text',
   };
 
   const baseClass = 'rounded-xl transition-colors duration-300';
   const iconSizes = size === 'small' ? 'h-4 w-4' : 'h-5 w-5';
   const sizeClass = sizeClasses[size];
   const variantClass = variantClasses[variant];
+  const colorClass = colorClasses[variant];
 
   return (
     <button
-      className={`${baseClass} ${variantClass} ${sizeClass}${isCritical ? ' border-critical bg-critical hover:border-criticalAccent hover:bg-criticalAccent disabled:hover:border-critical disabled:hover:bg-critical' : ''}`}
+      className={`${baseClass} ${variantClass} ${sizeClass} ${colorClass}`}
       disabled={isDisabled}
       onClick={onClick}
     >

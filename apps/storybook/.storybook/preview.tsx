@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Preview } from '@storybook/react';
+import type { Preview, StoryContext } from '@storybook/react';
 import { useMemo } from 'react';
 import { ThemeProvider } from '@jrock2004/component-library';
 
@@ -23,9 +23,12 @@ export const globalTypes = {
   },
 };
 
-export const withTheme = (Story, context) => {
-  const { theme: themeKey } = context.globals;
+const isDarkThemePreferred2 = globalThis
+  ? globalThis.matchMedia('(prefers-color-scheme: dark)').matches
+  : false;
 
+export const withTheme = (Story, context: StoryContext) => {
+  const { theme: themeKey } = context.globals;
   const theme = useMemo(() => THEMES[themeKey] || THEMES['default'], [themeKey]);
 
   return (
@@ -40,6 +43,19 @@ export const decorators = [withTheme];
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    backgrounds: {
+      default: isDarkThemePreferred2 ? 'Dark Mode' : 'Light Mode',
+      values: [
+        {
+          name: 'Light Mode',
+          value: 'rgb(246 246 250)',
+        },
+        {
+          name: 'Dark Mode',
+          value: 'rgb(26 29 45)',
+        },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

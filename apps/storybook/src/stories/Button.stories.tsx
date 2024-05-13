@@ -46,6 +46,13 @@ export const Secondary: Story = {
   },
 };
 
+export const Outline: Story = {
+  args: {
+    children: 'Button',
+    variant: 'outline',
+  },
+};
+
 export const Tertiary: Story = {
   args: {
     children: 'Button',
