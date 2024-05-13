@@ -12,7 +12,7 @@
     "@jrock2004/eslint-config": "workspace:*",
     "@jrock2004/tsconfig": "workspace:*",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "^1.13.2"
   },
   "engines": {
     "node": ">=18"
