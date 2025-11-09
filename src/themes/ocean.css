@@ -1,0 +1,15 @@
+:root[data-theme="ocean"] {
+  --primary: oklch(0.6 0.12 240);
+  --primary-foreground: white;
+  --accent: oklch(0.96 0.04 230);
+  --accent-foreground: oklch(0.2 0 0);
+  --ring: oklch(0.6 0.1 240);
+}
+:root[data-theme="ocean"].dark,
+.dark :root[data-theme="ocean"] {
+  --primary: oklch(0.72 0.14 240);
+  --primary-foreground: oklch(0.16 0 0);
+  --accent: oklch(0.3 0.05 240);
+  --accent-foreground: oklch(0.97 0 0);
+  --ring: oklch(0.7 0.12 240);
+}

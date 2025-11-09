@@ -1,0 +1,15 @@
+:root[data-theme="rose"] {
+  --primary: oklch(0.7 0.2 20);
+  --primary-foreground: white;
+  --accent: oklch(0.97 0.03 20);
+  --accent-foreground: oklch(0.2 0 0);
+  --ring: oklch(0.65 0.2 20);
+}
+:root[data-theme="rose"].dark,
+.dark :root[data-theme="rose"] {
+  --primary: oklch(0.75 0.22 20);
+  --primary-foreground: oklch(0.16 0 0);
+  --accent: oklch(0.3 0.05 20);
+  --accent-foreground: oklch(0.97 0 0);
+  --ring: oklch(0.7 0.22 20);
+}

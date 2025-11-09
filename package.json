@@ -1,0 +1,65 @@
+{
+  "name": "component-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "pnpm tailwind:watch | pnpm storybook:dev",
+    "storybook:dev": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "clean": "rimraf dist",
+    "build:css": "mkdir -p dist/styles && npx @tailwindcss/cli -i src/styles/tailwind-entry.css -o ./dist/styles/global.css",
+    "build:themes": "mkdir -p dist/themes && cp src/themes/*.css dist/themes/",
+    "build:types": "tsc -p tsconfig.json --emitDeclarationOnly",
+    "build:js": "tsup src/index.ts --format esm,cjs --dts --out-dir dist",
+    "build": "pnpm clean && pnpm build:js && pnpm build:css && pnpm build:themes && pnpm build:types",
+    "dev:css": "tailwindcss -i ./src/styles/tailwind-entry.css -o ./dist/styles/global.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.20.0",
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.2",
+    "@storybook/addon-a11y": "^10.0.6",
+    "@storybook/addon-docs": "^10.0.6",
+    "@storybook/addon-vitest": "^10.0.6",
+    "@storybook/react-vite": "^10.0.6",
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitest/browser-playwright": "^4.0.8",
+    "@vitest/coverage-v8": "^4.0.8",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "playwright": "^1.56.1",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rimraf": "^6.1.0",
+    "storybook": "^10.0.6",
+    "tailwindcss": "^4.1.17",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.8"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles/global.css",
+    "./themes/ocean.css": "./dist/themes/ocean.css",
+    "./themes/rose.css": "./dist/themes/rose.css"
+  }
+}
